@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD</title>
+    <link rel="stylesheet" href="style (3).css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- <form> -->
+        <div class="container">
+            <div class="crudContainer">            
+                <div class="personalInfo">
+                    <div class="crudContent">
+                        <div class="photoDobCountry">
+                            <div class="photoContent">
+                                <div class="imagePreview" id="imagePreview"></div>
+                                <div>
+                                    <input type="file" name="photo" class="uploadButton input" id="photo">
+                                    <sup class="requiredFeild"> &nbsp;&nbsp;*</sup>
+                                    <div id="uploadContent"></div>
+                                </div>
+                            </div>
+                            <div class="dobContent" id="dobContent">
+                                <label for="dob" id="dobLabel">Date Of Birth<sup class="requiredFeild">*</sup></label><br>
+                                <input type="date" id="dob" name="dob" class="inputBoxLength input">
+                            </div>
+                            <div class="countryContent" id="countryContent">
+                                <label for="country" id="countryLabel">Select Country<sup class="requiredFeild">*</sup></label><br>
+                                <select name="country" id="country" class="inputBoxLength input">
+                                    <option value="">Select Country</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="organization">
+                            <div class="organizationNameContent" id="organizationNameContent">
+                                <label for="organizationName" id="organizationNameLabel">Select Organization<sup class="requiredFeild">*</sup></label><br>
+                                <select name="organizationName" id="organizationName" class="inputBoxLength input">
+                                    <option value="">Select Organization</option>
+                                    <option value="organization1">Organization1</option>
+                                </select>
+                            </div>
+                            <div class="lastNameContent" id="lastNameContent">
+                                <label for="lastName" id="lastNameLabel">Last Name<sup class="requiredFeild">*</sup></label><br>
+                                <input type="text" name="lastName" id="lastName" class="inputBoxLength input">
+                            </div>
+                            <div class="mobileNumberContent" id="mobileNumberContent">
+                                <label for="mobileNumber" id="mobileNumberLabel">Mobile Number<sup class="requiredFeild">*</sup></label><br>
+                                <input type="number" name="mobileNumber" onKeyPress="if(this.value.length===10) return false;" id="mobileNumber" class="inputBoxLength input">
+                            </div>
+                            <div class="stateNameContent" id="stateNameContent">
+                                <label for="stateName" id="stateNameLabel">Select State<sup class="requiredFeild">*</sup></label><br>
+                                <select name="stateName" id="stateName" class="inputBoxLength input">
+                                    <option value="">Select State</option>
+                                    <option value="Andhra pradesh">Andhra Pradesh</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="nameEmailCity" id="nameEmailCity">
+                            <div class="firstNameContent" id="firstNameContent">
+                                <label for="firstName" id="firstNameLabel">First Name<sup class="requiredFeild">*</sup></label><br>
+                                <input type="text" name="firstName" id="firstName" class="inputBoxLength input">
+                            </div>
+                            <div class="genderContent" id="genderContent">
+                                <label>Gender<sup class="requiredFeild">*</sup></label><br>
+                                <input type="radio" name="gender" id="male" value="male" checked><label for="male">Male</label>
+                                <input type="radio" name="gender" id="female" value="female"><label for="female">Female</label>
+                            </div>
+                            <div class="emailIdContent" id="emailIdContent">
+                                <label for="emailId" id="emailIdLabel">Email Id<sup class="requiredFeild">*</sup></label><br>
+                                <input type="email" name="emailId" id="emailId" class="inputBoxLength input">
+                            </div>
+                            <div class="cityContent" id="cityContent">
+                                <label for="city" id="cityLabel">City<sup class="requiredFeild">*</sup></label><br>
+                                <input type="text" name="city" id="city" class="inputBoxLength input">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="addressInfo">
+                    <div class="crudContent">
+                        <div class="addressContent">
+                            <div class="currentAddressContent" id="currentAddressContent">
+                                <label for="currentAddress" id="currentAddressLabel">Communication Address<sup class="requiredFeild">*</sup></label><br>
+                                <textarea name="currentAddress" id="currentAddress" class="inputBoxLength addressHeight input"></textarea>
+                            </div>
+                            <div class="sameAddressContent" id="sameAddressContent">
+                                <input type="checkbox" id="sameAddress" name="sameAddress" onchange="compareAddress(event)">
+                                <label for="sameAddress" id="sameAddressLabel">Communication Address Same as Permanent Address</label>
+                            </div>
+                        </div>
+                        <div class="addressContent">
+                            <div class="permanentAddressContent" id="permanentAddressContent">
+                                <label for="permanentAddress" id="permanentAddressLabel">Permanent Address</label><br>
+                                <textarea name="permanentAddress" id="permanentAddress" class="inputBoxLength addressHeight"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pincodeInfo">
+                    <div class="crudContent">
+                        <div class="pincodeContent">
+                            <div class="dobContent" id="pincodeContent">
+                                <label for="pincode" id="pincodeLabel">Pincode<sup class="requiredFeild">*</sup></label><br>
+                                <input type="number" name="pincode" id="pincode" onKeyPress="if(this.value.length===6) return false;" class="inputBoxLength input">
+                            </div>
+                        </div>
+                        <div class="organization"></div>
+                        <div class="nameEmailCity"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="submitContent" id="submitContent">
+            <button class="button update" id="update">Update</button>
+            <button class="button" id="register">Register</button>
+            <button class="button"><a href="index.html" class="link">Reset</a></button>
+        </div>
+        <div class="data" id="data">
+            <table id="tableData">
+                <tr>
+                    <th>Profile</th>
+                    <th>Organization</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Date Of Birth</th>
+                    <th>Mobile Number</th>
+                    <th>Email Id</th>
+                    <th>Country</th>
+                    <th>State</th>
+                    <th>City</th>
+                    <th>Communication Address</th>
+                    <th>Permanent Address</th>
+                    <th>Pincode</th>
+                    <th>Edit/Delete</th>
+                </tr>
+                <tbody id="tableValue"></tbody>
+            </table>
+        </div>
+    <!-- </form> -->
+    <script src="script.js"></script>
+</body>
+</html>
